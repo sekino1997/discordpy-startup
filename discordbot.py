@@ -1,4 +1,4 @@
-from discord.ext import commands
+#from discord.ext import commands
 import os
 import traceback
 import discord
@@ -49,9 +49,9 @@ async def on_message(message):
 
 @client.event
 async def on_ready():
-    '''
-    起動時に呼ばれるメソッド
-    '''
+    
+    #起動時に呼ばれるメソッド
+    
     print('-----Logged in info-----')
     print(client.user.name)
     print(client.user.id)
