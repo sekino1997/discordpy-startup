@@ -2,6 +2,11 @@ from discord.ext import commands
 import os
 import traceback
 import discord
+import asyncio
+import random
+import sys
+import os
+import botFunction.functions as f
 
 client = discord.Client()
 
