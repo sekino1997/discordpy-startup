@@ -1,12 +1,9 @@
-from discord.ext import commands
-import os
-import traceback
 import discord
 import asyncio
 import random
 import sys
+import os
 import botFunction.functions as f
-
 
 client = discord.Client()
 
@@ -19,40 +16,12 @@ func_list = {
     'ヘルプ': f.help
 }
 
-bot = commands.Bot(command_prefix='/')
-token = os.environ['DISCORD_BOT_TOKEN']
-
-
-@bot.event
-async def on_command_error(ctx, error):
-    orig_error = getattr(error, "original", error)
-    error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
-    await ctx.send(error_msg)
-
-
-@bot.command()
-async def ping(ctx):
-    await ctx.send('pongPong')
-    
-    
-@client.event
-async def on_message(message):
-    # 「おはよう」で始まるか調べる
-    await message.channel.send("pass")
-    
-    if message.content.startswith("おはよう"):
-        # 送り主がBotだった場合反応したくないので
-        if client.user != message.author:
-            # メッセージを書きます
-            m = "おはようございます" + message.author.name + "さん！"
-            # メッセージが送られてきたチャンネルへメッセージを送ります
-            await message.channel.send(m)
 
 @client.event
 async def on_ready():
-    
-    #起動時に呼ばれるメソッド
-    
+    '''
+    起動時に呼ばれるメソッド
+    '''
     print('-----Logged in info-----')
     print(client.user.name)
     print(client.user.id)
@@ -75,7 +44,5 @@ async def on_message(message):
                 await f.random_reply(client, message)
     except:
         print(sys.exc_info())
-            
-client.run(token)
 
-bot.run(token)
+client.run(os.environ.get('ENV_VAR_DISCORD_ID'))
