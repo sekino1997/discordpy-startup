@@ -23,10 +23,14 @@ async def on_command_error(ctx, error):
 async def ping(ctx):
     await ctx.send('pong')
 
-@client.event
-async def on_ready()
-    print('ログインしました')
-    
-    
+@bot.event
+async def on_ready():
+    '''
+    起動時に呼ばれるメソッド
+    '''
+    print('-----Logged in info-----')
+    print(client.user.name)
+    print(client.user.id)
+    print('------------------------')    
 
 bot.run(token)
