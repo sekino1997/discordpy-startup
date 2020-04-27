@@ -19,8 +19,12 @@ func_list = {
     'ヘルプ': f.help
 }
 
+client = discord.Client()
+
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
+
+client = discord.Client()
 
 @bot.event
 async def on_command_error(ctx, error):
