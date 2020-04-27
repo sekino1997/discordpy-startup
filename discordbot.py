@@ -5,6 +5,15 @@ import discord
 
 client = discord.Client()
 
+func_list = {
+    '名言': f.random_meigen,
+    '迷言': f.random_meigen,
+    '武器': f.random_splat_buki,
+    'ブキ': f.random_splat_buki,
+    'help': f.help,
+    'ヘルプ': f.help
+}
+
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
 
