@@ -24,6 +24,7 @@ async def ping(ctx):
 @client.event
 async def on_message(message):
     # 「おはよう」で始まるか調べる
+    await message.channel.send("pass")
     if message.content.startswith("おはよう"):
         # 送り主がBotだった場合反応したくないので
         if client.user != message.author:
