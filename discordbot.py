@@ -20,6 +20,7 @@ async def on_command_error(ctx, error):
 async def ping(ctx):
     await ctx.send('pongPong')
     
+bot.run(token)
     
 @client.event
 async def on_message(message):
@@ -33,5 +34,4 @@ async def on_message(message):
             # メッセージが送られてきたチャンネルへメッセージを送ります
             await message.channel.send(m)
 
-
-bot.run(token)
+client.run(token)
