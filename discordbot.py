@@ -1,4 +1,4 @@
-#from discord.ext import commands
+from discord.ext import commands
 import os
 import traceback
 import discord
@@ -39,6 +39,7 @@ async def ping(ctx):
 async def on_message(message):
     # 「おはよう」で始まるか調べる
     await message.channel.send("pass")
+    
     if message.content.startswith("おはよう"):
         # 送り主がBotだった場合反応したくないので
         if client.user != message.author:
@@ -74,8 +75,6 @@ async def on_message(message):
                 await f.random_reply(client, message)
     except:
         print(sys.exc_info())
-
-client.run(os.environ.get('ENV_VAR_DISCORD_ID'))
             
 client.run(token)
 
