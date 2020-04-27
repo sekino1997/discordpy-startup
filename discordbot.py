@@ -36,6 +36,6 @@ async def on_message(message):
     except:
         print(sys.exc_info())
 
-client.run(os.environ.get('ENV_VAR_DISCORD_ID'))
+client.run(token)
 
 bot.run(token)
