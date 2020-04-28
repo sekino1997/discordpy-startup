@@ -2,6 +2,8 @@ from discord.ext import commands
 import os
 import traceback
 
+'''
+
 import discord 
 
 import asyncio
@@ -21,10 +23,14 @@ func_list = {
 
 client = discord.Client()
 
+'''
+
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
 
+'''
 client = discord.Client()
+'''
 
 @bot.event
 async def on_command_error(ctx, error):
@@ -35,22 +41,23 @@ async def on_command_error(ctx, error):
 @bot.command()
 async def ping(ctx):
     await ctx.send('pong')
-
+'''
 @bot.event
 async def on_ready():
     '''
-    起動時に呼ばれるメソッド
+    #起動時に呼ばれるメソッド
     '''
     print('-----Logged in info-----')
     print(client.user.name)
     print(client.user.id)
     print('------------------------')    
-
+'''
+'''
 @bot.event
 async def on_message(message):
     '''
-    特定のメッセージを受け取って処理する\n
-    今はメンションを送るとランダムに名言を返す
+    #特定のメッセージを受け取って処理する\n
+    #今はメンションを送るとランダムに名言を返す
     '''
     try:
         if client.user.id in message.content:
@@ -64,5 +71,5 @@ async def on_message(message):
         print(sys.exc_info())    
     
     
-    
+'''
 bot.run(token)
