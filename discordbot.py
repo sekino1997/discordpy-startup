@@ -18,5 +18,8 @@ async def on_command_error(ctx, error):
 async def ping(ctx):
     await ctx.send('pong')
 
+@bot.command()
+async def hakamata(ctx):
+    await ctx.send('KEITO')
 
 bot.run(token)
